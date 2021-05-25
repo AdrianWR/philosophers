@@ -7,6 +7,8 @@ philo_*
 */compile_commands.json
 */.clangd
 
+*/.vscode/
+
 ################
 # C .gitignore #
 ################
