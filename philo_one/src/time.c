@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_one.c                                        :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 18:58:26 by aroque            #+#    #+#             */
-/*   Updated: 2021/05/25 22:58:49 by aroque           ###   ########.fr       */
+/*   Created: 2021/05/24 22:11:55 by aroque            #+#    #+#             */
+/*   Updated: 2021/05/24 22:39:53 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include <sys/time.h>
+#include <stdlib.h>
 
-int	main(int argc, char *argv[])
+float	timestamp(struct timeval start)
 {
-	t_errcode	err;
-	t_params	*params;
+	float			stamp_s;
+	float			stamp_us;
+	struct timeval	now;
 
-	params = NULL;
-	err = get_params(argc, argv, params);
-	if (err)
-	{
-		printf("Error\n");
-		return (err);
-	}
-	printf("Finished\n");
-	return (0);
+	gettimeofday(&now, NULL);
+	stamp_s = (now.tv_sec - start.tv_sec) * 1000;
+	stamp_us = (now.tv_usec - start.tv_usec) / 1000;
+	return (stamp_s + stamp_us);
 }
