@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aroque <aroque@student.42sp.org.br>        +#+  +:+       +#+         #
+#    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/05/23 19:05:35 by aroque           ###   ########.fr        #
+#    Updated: 2021/05/25 22:54:21 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,17 +15,24 @@ NAME = philo_one
 RM			= rm -f
 
 CC			= clang
-CPPFLAGS	= 
-CFLAGS		= 
+CPPFLAGS	=
+CFLAGS		=
 LDFLAGS		=
 LDLIBS		=
 
 INCLUDE_DIR	= include
-override CFLAGS += -Wall -Wextra -Werror
-override CPPFLAGS += -I$(INCLUDE_DIR)
+override CPPFLAGS	+= -I$(INCLUDE_DIR)
+override CFLAGS		+=	-Wall				\
+						-Wextra				\
+						-Werror				\
+						-pthread
+override LDFLAGS	+=	-pthread
 
-SRC_DIR	= src
-SRC		= philo_one.c
+SRC_DIR	=	src
+SRC		=	philo_one.c	\
+			time.c		\
+			args.c		\
+			atoi.c
 
 OBJ_DIR	= build
 OBJ		= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
@@ -46,3 +53,5 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+
+re: fclean all
