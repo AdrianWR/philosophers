@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/05/25 23:00:10 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/05 22:52:17 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ typedef struct s_params
 
 float		timestamp(struct timeval start);
 int			ft_atoi(const char *str);
-t_errcode	get_params(int argc, char *argv[], t_params *params);
+t_errcode	get_params(int argc, char *argv[], t_params **params);
 
 #endif

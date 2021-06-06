@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:53:48 by aroque            #+#    #+#             */
-/*   Updated: 2021/05/25 22:57:25 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/05 17:11:17 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@ static int	ft_isspace(char str)
 	if (str == 0x20 || (str >= 0x09 && str <= 0x0d))
 		return (1);
 	return (0);
-}
-
-static int	ft_isdigit(char c)
-{
-	return (c >= '0' && c <= '9');
 }
 
 int	ft_atoi(const char *str)
