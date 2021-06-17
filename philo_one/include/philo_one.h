@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/05 22:52:17 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/16 23:01:33 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ typedef enum e_errcode {
 
 typedef struct s_params
 {
-	int	philosophers;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	eat_times;
+	unsigned int	n;
+	int	t_die;
+	int	t_eat;
+	int	t_sleep;
+	int	meals;
 }	t_params;
 
 float		timestamp(struct timeval start);
