@@ -35,6 +35,17 @@ typedef struct s_params
 	int	meals;
 }	t_params;
 
+typedef struct s_seat
+{
+	unsigned int	i;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	int	t_die;
+	int	t_eat;
+	int	t_sleep;
+	int	meals;
+}	t_seat;
+
 float		timestamp(struct timeval start);
 int			ft_atoi(const char *str);
 t_errcode	get_params(int argc, char *argv[], t_params **params);
