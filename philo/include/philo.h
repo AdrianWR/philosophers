@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_one.h                                        :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/16 23:01:33 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/19 16:47:10 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,26 @@ typedef struct s_params
 typedef struct s_seat
 {
 	unsigned int	i;
+	pthread_t		*thread;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
-	int	t_die;
-	int	t_eat;
-	int	t_sleep;
-	int	meals;
+	int				t_die;
+	int				t_eat;
+	int				t_sleep;
+	int				meals;
+	void			*(*routine)(void *);
+	void			*arg;
 }	t_seat;
+
+//typedef struct s_thread_info
+//{
+//}	t_thread_info;
 
 float		timestamp(struct timeval start);
 int			ft_atoi(const char *str);
 t_errcode	get_params(int argc, char *argv[], t_params **params);
+int			pthread_mutex_init_wrapper(void *mutex);
+int			pthread_create_wrapper(void *thread_info);
+int			pthread_join_wrapper(void *thread);
 
 #endif

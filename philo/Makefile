@@ -6,11 +6,11 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/05/25 22:54:21 by aroque           ###   ########.fr        #
+#    Updated: 2021/06/18 16:46:53 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo_one
+NAME = philo
 
 RM			= rm -f
 
@@ -29,9 +29,9 @@ override CFLAGS		+=	-Wall				\
 override LDFLAGS	+=	-pthread
 
 SRC_DIR	=	src
-SRC		=	philo_one.c	\
-			time.c		\
-			args.c		\
+SRC		=	philo.c	\
+			time.c	\
+			args.c	\
 			atoi.c
 
 OBJ_DIR	= build

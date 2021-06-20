@@ -6,11 +6,11 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:40:45 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/16 22:48:01 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/18 16:51:22 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
+#include "philo.h"
 
 static int	ft_isdigit(char c)
 {
