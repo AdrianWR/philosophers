@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/19 16:47:10 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/20 21:14:56 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_params
 typedef struct s_seat
 {
 	unsigned int	i;
-	pthread_t		*thread;
+	pthread_t		*phil;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	int				t_die;
@@ -48,6 +48,14 @@ typedef struct s_seat
 	void			*(*routine)(void *);
 	void			*arg;
 }	t_seat;
+
+typedef struct	s_table
+{
+	unsigned int	n;
+	pthread_mutex_t	*forks;
+	t_params		*params;
+
+}	t_table;
 
 //typedef struct s_thread_info
 //{
