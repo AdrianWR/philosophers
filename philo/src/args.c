@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:40:45 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/18 16:51:22 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/20 22:10:38 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool	validate_int_params(int argc, char **argv)
 	return (validate_int_params(argc - 1, argv));
 }
 
-t_errcode	get_params(int argc, char *argv[], t_params **params)
+t_errcode	get_params(int argc, char *argv[], t_table **params)
 {
 	if (argc < 5 || argc > 6)
 		return (EINVARG);
