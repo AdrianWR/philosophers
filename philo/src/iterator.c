@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 00:02:27 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/25 01:27:43 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/25 09:29:58 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	iterate_void(int (*func)(void *), void *arr, int n)
 	return (err);
 }
 
-int	iterate(int (*func)(void *), t_seat *arr, int n)
+int	iterate(int (*func)(t_seat *), t_seat *arr, int n)
 {
 	int	i;
 	int err;

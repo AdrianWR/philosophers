@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:58:26 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/25 01:30:44 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/25 09:31:52 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	start_the_party(t_table *table)
 	table->forks = forks;
 	table->phil = phil;
 	start_seats(table, seats);
-	iterate_void(pthread_mutex_init_wrapper, table->forks, table->n);
+	iterate(pthread_mutex_init_wrapper, seats, table->n);
 	iterate(pthread_create_wrapper, seats, table->n);
 	iterate(pthread_join_wrapper, seats, table->n);
 	return (0);

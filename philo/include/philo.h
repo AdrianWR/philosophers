@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/25 01:28:11 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/25 09:30:33 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ typedef struct	s_table
 float		timestamp(struct timeval start);
 int			ft_atoi(const char *str);
 t_errcode	get_params(int argc, char *argv[], t_table **params);
-int			pthread_mutex_init_wrapper(void *mutex);
-int			pthread_create_wrapper(void *thread_info);
-int			pthread_join_wrapper(void *thread);
+int			pthread_mutex_init_wrapper(t_seat *seat);
+int			pthread_create_wrapper(t_seat *thread_info);
+int			pthread_join_wrapper(t_seat *thread);
 int			iterate_void(int (*func)(void *), void *arr, int n);
-int			iterate(int (*func)(void *), t_seat *arr, int n);
+int			iterate(int (*func)(t_seat *), t_seat *arr, int n);
 
 #endif
