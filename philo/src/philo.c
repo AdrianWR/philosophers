@@ -40,29 +40,6 @@ t_seat	*prepare_seat(unsigned int i, pthread_mutex_t *forks, t_params *p)
 	return (seat);
 }
 
-/*
-** int iterate(int (*func)(void *), void *arg, int n): 
-**
-** Apply function func(void *) to each element of array *arr.
-** The size of the array must be given by n. The return of the
-** function is the the return of func, given that an error might
-** occur. In case of sucess, iterate returns zero.
-*/
-
-int	iterate(int (*func)(void *), void *arr, int n)
-{
-	int	i;
-	int err;
-
-	i = 0;
-	err = 0;
-	while (!err && i < n)
-	{
-		func(&arr[i]);
-		i++;
-	}
-	return (err);
-}
 
 t_seat **init_thread_info(unsigned int n, pthread_mutex_t *forks, t_params *params)
 {
