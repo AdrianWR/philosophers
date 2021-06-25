@@ -6,7 +6,7 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/06/18 16:46:53 by aroque           ###   ########.fr        #
+#    Updated: 2021/06/25 00:07:56 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RM			= rm -f
 
 CC			= clang
 CPPFLAGS	=
-CFLAGS		=
+CFLAGS		= -g -O0
 LDFLAGS		=
 LDLIBS		=
 
@@ -29,10 +29,12 @@ override CFLAGS		+=	-Wall				\
 override LDFLAGS	+=	-pthread
 
 SRC_DIR	=	src
-SRC		=	philo.c	\
-			time.c	\
-			args.c	\
-			atoi.c
+SRC		=	philo.c		\
+			time.c		\
+			args.c		\
+			atoi.c		\
+			wrapper.c	\
+			iterator.c
 
 OBJ_DIR	= build
 OBJ		= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
