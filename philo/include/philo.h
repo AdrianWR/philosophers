@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/25 09:30:33 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/25 09:34:37 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct	s_table
 	unsigned int	n;
 	pthread_t		*phil;
 	pthread_mutex_t	*forks;
-	t_params		*params;
 	int	t_die;
 	int	t_eat;
 	int	t_sleep;
