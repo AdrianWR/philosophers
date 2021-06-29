@@ -6,7 +6,7 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/06/25 00:07:56 by aroque           ###   ########.fr        #
+#    Updated: 2021/06/25 22:36:50 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ NAME = philo
 
 RM			= rm -f
 
-CC			= clang
+CC			= gcc
 CPPFLAGS	=
 CFLAGS		= -g -O0
 LDFLAGS		=
 LDLIBS		=
 
 INCLUDE_DIR	= include
-override CPPFLAGS	+= -I$(INCLUDE_DIR)
+override CPPFLAGS	+=	-I$(INCLUDE_DIR)
 override CFLAGS		+=	-Wall				\
 						-Wextra				\
 						-Werror				\

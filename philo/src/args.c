@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:40:45 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/20 22:10:38 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/26 15:27:49 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,19 @@ bool	validate_int_params(int argc, char **argv)
 	return (validate_int_params(argc - 1, argv));
 }
 
-t_errcode	get_params(int argc, char *argv[], t_table **params)
+int	get_table(int argc, char *argv[], t_table *table)
 {
 	if (argc < 5 || argc > 6)
 		return (EINVARG);
 	if (!validate_int_params(argc - 1, argv))
 		return (EINVARG);
-	*params = malloc(sizeof(**params));
-	if (!*params)
+	if (!table)
 		return (ERRSYS);
-	memset(*params, 0, sizeof(**params));
-	(*params)->n = ft_atoi(argv[1]);
-	(*params)->t_die = ft_atoi(argv[2]);
-	(*params)->t_eat = ft_atoi(argv[3]);
-	(*params)->t_sleep = ft_atoi(argv[4]);
+	table->n = ft_atoi(argv[1]);
+	table->t_die = ft_atoi(argv[2]);
+	table->t_eat = ft_atoi(argv[3]);
+	table->t_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
-		(*params)->meals = ft_atoi(argv[5]);
+		table->meals = ft_atoi(argv[5]);
 	return (0);
 }

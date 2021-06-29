@@ -6,21 +6,18 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:11:55 by aroque            #+#    #+#             */
-/*   Updated: 2021/05/24 22:39:53 by aroque           ###   ########.fr       */
+/*   Updated: 2021/06/26 15:46:32 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/time.h>
 #include <stdlib.h>
+#include <sys/types.h>
 
-float	timestamp(struct timeval start)
+u_int64_t	timestamp(void)
 {
-	float			stamp_s;
-	float			stamp_us;
 	struct timeval	now;
 
 	gettimeofday(&now, NULL);
-	stamp_s = (now.tv_sec - start.tv_sec) * 1000;
-	stamp_us = (now.tv_usec - start.tv_usec) / 1000;
-	return (stamp_s + stamp_us);
+	return (now.tv_sec * (u_int64_t)1000  + now.tv_usec / 1000);
 }
