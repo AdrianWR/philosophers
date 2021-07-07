@@ -1,3 +1,5 @@
+[![Build](https://github.com/AdrianWR/philosophers/actions/workflows/c.yml/badge.svg)](https://github.com/AdrianWR/philosophers/actions/workflows/c.yml)
+
 # Philosophers
 
 > _Economics is the science which studies human behaviour as a relationship between ends and scarce means which have alternative uses._
