@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/26 15:43:40 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/05 17:25:08 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@ typedef enum e_errcode {
 	ERRSYS = 134,
 	EINVARG
 }	t_errcode;
-
-typedef struct s_params
-{
-	unsigned int	n;
-	int	t_die;
-	int	t_eat;
-	int	t_sleep;
-	int	meals;
-}	t_params;
 
 typedef struct s_seat
 {
