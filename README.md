@@ -1,4 +1,4 @@
-[![Build](https://github.com/AdrianWR/philosophers/actions/workflows/c.yml/badge.svg)](https://github.com/AdrianWR/philosophers/actions/workflows/c.yml)
+[![build](https://github.com/AdrianWR/philosophers/actions/workflows/build.yml/badge.svg)](https://github.com/AdrianWR/philosophers/actions/workflows/build.yml)
 
 # Philosophers
 
