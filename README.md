@@ -26,7 +26,7 @@ To compile the dining philosophers binary, you must have installed `make` and `c
 
 ## Useful Links
 
- - [Dining Philosoophers](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
+ - [Dining Philosophers](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
 
 ## License
 
