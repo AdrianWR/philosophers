@@ -6,7 +6,7 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/06/25 22:36:50 by aroque           ###   ########.fr        #
+#    Updated: 2021/07/06 23:01:20 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ SRC		=	philo.c		\
 			args.c		\
 			atoi.c		\
 			wrapper.c	\
-			iterator.c
+			iterator.c	\
+			display.c	\
+			routine.c
 
 OBJ_DIR	= build
 OBJ		= $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))

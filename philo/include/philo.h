@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/05 17:25:08 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/06 23:01:03 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct	s_table
 }	t_table;
 
 u_int64_t	timestamp(void);
+void		display(const char *str, t_seat *seat);
+void		*philosopher(void *arg);
 int			ft_atoi(const char *str);
 int			get_table(int argc, char *argv[], t_table *params);
 int			iterate(int (*func)(t_seat *), t_seat *arr, unsigned int n);
