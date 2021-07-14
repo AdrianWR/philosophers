@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aroque <aroque@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 22:58:00 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/06 22:58:14 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/13 23:47:27 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	display(const char *str, t_seat *seat)
 {
 	pthread_mutex_lock(seat->display);
-	printf("%lu ", timestamp());
+	printf("%ld ", timestamp());
 	printf(str, seat->i);
 	pthread_mutex_unlock(seat->display);
 }

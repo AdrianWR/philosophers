@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:11:55 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/26 15:46:32 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/13 23:47:58 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 
-u_int64_t	timestamp(void)
+long	timestamp(void)
 {
 	struct timeval	now;
 
