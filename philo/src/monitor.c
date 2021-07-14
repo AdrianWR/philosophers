@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wrapper.c                                          :+:      :+:    :+:   */
+/*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 17:34:53 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/13 23:52:30 by aroque           ###   ########.fr       */
+/*   Created: 2021/07/13 23:29:44 by aroque            #+#    #+#             */
+/*   Updated: 2021/07/13 23:52:02 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pthread.h>
 #include "philo.h"
 
-int	pthread_mutex_init_wrapper(t_seat *seat)
+void *monitor(void *arg)
 {
-	return (pthread_mutex_init(seat->left_fork, NULL));
-}
+    t_seat *seat;
+    bool    died;
 
-int	pthread_mutex_destroy_wrapper(t_seat *seat)
-{
-	return (pthread_mutex_destroy(seat->left_fork));
-}
-
-int pthread_create_wrapper(t_seat *seat)
-{
-	return (pthread_create(seat->phil, NULL, seat->routine, seat));
-}
-
-int	pthread_detach_wrapper(t_seat *seat)
-{
-	return (pthread_detach(*(seat->phil)));
+    seat = arg;
+    died = false;
+    while (true)
+    {
+        if (!died && !seat->is_eating && timestamp() > seat->limit)
+        {
+            died = true;
+            display("%d has died.\n", seat);
+        }
+        usleep(1000);
+    }
+    return (NULL);
 }

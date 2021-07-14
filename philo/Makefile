@@ -6,7 +6,7 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/07/06 23:01:20 by aroque           ###   ########.fr        #
+#    Updated: 2021/07/13 23:35:27 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC		=	philo.c		\
 			wrapper.c	\
 			iterator.c	\
 			display.c	\
+			monitor.c	\
 			routine.c
 
 OBJ_DIR	= build

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aroque <aroque@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 23:00:23 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/06 23:00:45 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/13 23:50:00 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	take_forks(t_seat *seat)
 {
 	pthread_mutex_lock(seat->left_fork);
-	//display("%d has taken a fork.\n", seat);
+	display("%d has taken a fork.\n", seat);
 	pthread_mutex_lock(seat->right_fork);
 	display("%d has taken a fork.\n", seat);
 }
@@ -28,8 +28,11 @@ void	drop_forks(t_seat *seat)
 
 void	eat(t_seat *seat)
 {
-	usleep(seat->t_eat * 1000);
+    seat->is_eating = true;
+    seat->limit = timestamp() + seat->t_die;
 	display("%d is eating.\n", seat);
+	usleep(seat->t_eat * 1000);
+    seat->is_eating = false;
 	seat->meals--;
 }
 
@@ -49,9 +52,12 @@ void	*philosopher(void *arg)
 {
 	t_seat	*seat;
 	bool	endless;
+	pthread_t	m;
 
 	seat = arg;
 	endless = !seat->meals;
+	pthread_create(&m, NULL, monitor, seat);
+	pthread_detach(m);
 	while (endless || seat->meals)
 	{
 		take_forks(seat);

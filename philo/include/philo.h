@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/06 23:01:03 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/13 23:47:14 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_seat
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	*display;
+    bool			is_eating;
+    int				limit;
 	int				t_die;
 	int				t_eat;
 	int				t_sleep;
@@ -53,14 +55,15 @@ typedef struct	s_table
 	int	meals;
 }	t_table;
 
-u_int64_t	timestamp(void);
+long		timestamp(void);
 void		display(const char *str, t_seat *seat);
 void		*philosopher(void *arg);
+void		*monitor(void *arg);
 int			ft_atoi(const char *str);
 int			get_table(int argc, char *argv[], t_table *params);
 int			iterate(int (*func)(t_seat *), t_seat *arr, unsigned int n);
 int			pthread_create_wrapper(t_seat *thread_info);
-int			pthread_join_wrapper(t_seat *thread);
+int			pthread_detach_wrapper(t_seat *thread);
 int			pthread_mutex_init_wrapper(t_seat *seat);
 int			pthread_mutex_destroy_wrapper(t_seat *seat);
 
