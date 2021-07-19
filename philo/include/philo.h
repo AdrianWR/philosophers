@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/13 23:47:14 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/18 21:37:10 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@ typedef enum e_errcode {
 	EINVARG
 }	t_errcode;
 
-typedef struct s_seat
-{
-	unsigned int	i;
-	pthread_t		*phil;
-	pthread_mutex_t	*left_fork;
-	pthread_mutex_t	*right_fork;
-	pthread_mutex_t	*display;
-    bool			is_eating;
-    int				limit;
-	int				t_die;
-	int				t_eat;
-	int				t_sleep;
-	int				meals;
-	void			*(*routine)(void *);
-}	t_seat;
-
 typedef struct	s_table
 {
 	unsigned int	n;
@@ -53,9 +37,26 @@ typedef struct	s_table
 	int	t_eat;
 	int	t_sleep;
 	int	meals;
+    unsigned long   start;
 }	t_table;
 
-long		timestamp(void);
+typedef struct s_seat
+{
+	unsigned int	i;
+	pthread_t		*phil;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+    pthread_mutex_t	mutex;
+    bool			is_eating;
+    bool            alive;
+    unsigned long	limit;
+	int				meals;
+    t_table         *table;
+	void			*(*routine)(void *);
+}	t_seat;
+
+
+unsigned long	timestamp(void);
 void		display(const char *str, t_seat *seat);
 void		*philosopher(void *arg);
 void		*monitor(void *arg);
