@@ -2,12 +2,12 @@
 # Custom #
 ##########
 
-philo_*
-!philo_*/
+philo*
+!philo*/
 */compile_commands.json
 */.clangd
 
-*/.vscode/
+**/.vscode/
 
 ################
 # C .gitignore #
