@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/18 21:56:54 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/19 08:51:28 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ typedef struct	s_table
 	pthread_t		*phil;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	display;
+    pthread_mutex_t death_mutex;
 	int	t_die;
 	int	t_eat;
 	int	t_sleep;
 	int	meals;
-	unsigned long   start;
+	unsigned long   start_time;
 }	t_table;
 
 typedef struct s_seat

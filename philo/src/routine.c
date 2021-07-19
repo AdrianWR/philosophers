@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 23:00:23 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/18 22:03:01 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/19 08:46:42 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ void	drop_forks(t_seat *seat)
 
 void	eat(t_seat *seat)
 {
+    pthread_mutex_lock(&(seat->mutex));
     seat->is_eating = true;
     seat->limit = timestamp() + seat->table->t_die;
 	display("is eating.", seat);
 	usleep(seat->table->t_eat * 1000);
     seat->is_eating = false;
 	seat->meals--;
+    pthread_mutex_unlock(&(seat->mutex));
 }
 
 void	_sleep(t_seat *seat)

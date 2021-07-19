@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:34:53 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/18 14:49:43 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/19 08:44:11 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	pthread_mutex_init_wrapper(t_seat *seat)
 {
+    pthread_mutex_init(&(seat->mutex), NULL);
 	return (pthread_mutex_init(seat->left_fork, NULL));
 }
 

@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:58:26 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/18 21:36:43 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/19 08:52:13 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	initialize_seats(t_seat seats[], t_table *table, int i)
 	seat->meals = table->meals;
     seat->alive = true;
     seat->table = table;
-    pthread_mutex_init(seat->left_fork, NULL);
 	initialize_seats(seats, table, i - 1);
 }
 
@@ -43,8 +42,10 @@ int	start(t_table table, int n)
 	table.forks = forks;
 	table.phil = phil;
 	pthread_mutex_init(&table.display, NULL);
+    pthread_mutex_init(&table.death_mutex, NULL);
+    pthread_mutex_lock(&table.death_mutex);
 	initialize_seats(seats, &table, n);
-	//iterate(pthread_mutex_init_wrapper, seats, n);
+	iterate(pthread_mutex_init_wrapper, seats, n);
 	iterate(pthread_create_wrapper, seats, n);
 	iterate(pthread_detach_wrapper, seats, n);
 	iterate(pthread_mutex_destroy_wrapper, seats, n);

@@ -6,7 +6,7 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/07/18 15:06:46 by aroque           ###   ########.fr        #
+#    Updated: 2021/07/19 08:50:56 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) -o $@ $(LDFLAGS) $(LDLIBS) $^
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: %.c $(INCLUDE_DIR)/philo.h
 	mkdir -p $(@D)
 	$(CC) -c -o $@ $(CPPFLAGS) $(CFLAGS) $<
 
