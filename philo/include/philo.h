@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/18 21:37:10 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/18 21:56:54 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_table
 	int	t_eat;
 	int	t_sleep;
 	int	meals;
-    unsigned long   start;
+	unsigned long   start;
 }	t_table;
 
 typedef struct s_seat
@@ -46,12 +46,12 @@ typedef struct s_seat
 	pthread_t		*phil;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
-    pthread_mutex_t	mutex;
-    bool			is_eating;
-    bool            alive;
-    unsigned long	limit;
+	pthread_mutex_t	mutex;
+	bool			is_eating;
+	bool            alive;
+	unsigned long	limit;
 	int				meals;
-    t_table         *table;
+	t_table         *table;
 	void			*(*routine)(void *);
 }	t_seat;
 

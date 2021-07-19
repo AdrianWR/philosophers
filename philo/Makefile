@@ -6,7 +6,7 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/07/13 23:35:27 by aroque           ###   ########.fr        #
+#    Updated: 2021/07/18 15:06:46 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 RM			= rm -f
 
-CC			= gcc
+CC			= clang
 CPPFLAGS	=
 CFLAGS		= -g -O0
 LDFLAGS		=

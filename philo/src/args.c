@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:40:45 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/26 15:27:49 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/18 21:35:03 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int	get_table(int argc, char *argv[], t_table *table)
 	table->t_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		table->meals = ft_atoi(argv[5]);
+    table->start = timestamp();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 17:34:53 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/13 23:52:30 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/18 14:49:43 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int pthread_create_wrapper(t_seat *seat)
 
 int	pthread_detach_wrapper(t_seat *seat)
 {
-	return (pthread_detach(*(seat->phil)));
+	return (pthread_join(*(seat->phil), NULL));
 }
