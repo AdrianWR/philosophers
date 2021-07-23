@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wrapper.c                                          :+:      :+:    :+:   */
+/*   meal.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 17:34:53 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/22 23:26:46 by aroque           ###   ########.fr       */
+/*   Created: 2021/07/23 22:46:49 by aroque            #+#    #+#             */
+/*   Updated: 2021/07/24 00:01:37 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pthread.h>
 #include "philo.h"
 
-int	pthread_mutex_destroy_wrapper(t_seat *seat)
+static int	meal_mutex_wrapper(t_seat *seat)
 {
-    pthread_mutex_destroy(&seat->mutex);
-	pthread_mutex_destroy(seat->left_fork);
-    return (0);
+	return (pthread_mutex_lock(&seat->meal_mutex));
 }
 
-int pthread_create_wrapper(t_seat *seat)
+static void	*meal_over(void *arg)
 {
-	pthread_create(&seat->phil, NULL, philosopher, seat);
-	pthread_detach(seat->phil);
-    //usleep(1000);
-    return (0);
+	t_table	*t;
+
+	t = arg;
+	iterate(meal_mutex_wrapper, t->seats, t->n);
+	pthread_mutex_unlock(&t->death_mutex);
+	return (NULL);
+}
+
+int	meal_counter(t_table *table)
+{
+	pthread_t		meal_counter;
+
+	pthread_create(&meal_counter, NULL, &meal_over, &table);
+	pthread_detach(meal_counter);
+	return (0);
 }

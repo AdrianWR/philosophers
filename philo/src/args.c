@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:40:45 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/22 21:05:30 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/24 00:14:02 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,35 @@ bool	validate_int_params(int argc, char **argv)
 	return (validate_int_params(argc - 1, argv));
 }
 
-int	get_table(int argc, char *argv[], t_table *table)
+int	get_params(int argc, char *argv[], t_table *table)
 {
-	if (argc < 5 || argc > 6)
-		return (EINVARG);
-	if (!validate_int_params(argc - 1, argv))
-		return (EINVARG);
 	table->n = ft_atoi(argv[1]);
+	if (table->n <= 1)
+		return (1);
 	table->t_die = ft_atoi(argv[2]);
 	table->t_eat = ft_atoi(argv[3]);
 	table->t_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		table->meals = ft_atoi(argv[5]);
-    else
-        table->meals = 0;
-    table->start_time = timestamp();
+	else
+		table->meals = 0;
+	return (0);
+}
+
+int	get_table(int argc, char *argv[], t_table *table)
+{
+	if (argc < 5 || argc > 6)
+		return (1);
+	if (!validate_int_params(argc - 1, argv))
+		return (1);
+	if (get_params(argc, argv, table))
+		return (1);
+	table->start_time = timestamp();
+	table->seats = malloc(sizeof(*table->seats) * table->n);
+	if (!table->seats)
+		return (1);
+	table->forks = malloc(sizeof(*table->forks) * table->n);
+	if (!table->forks)
+		return (1);
 	return (0);
 }

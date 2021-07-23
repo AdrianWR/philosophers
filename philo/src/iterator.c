@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iterator.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aroque <aroque@student.42sp.org.br>        +#+  +:+       +#+        */
+/*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 00:02:27 by aroque            #+#    #+#             */
-/*   Updated: 2021/06/25 10:14:21 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/23 17:14:26 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 int	iterate(int (*func)(t_seat *), t_seat *arr, unsigned int n)
 {
 	unsigned int	i;
-	int err;
+	int				err;
 
 	i = -1;
 	err = 0;
