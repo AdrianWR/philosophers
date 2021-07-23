@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:40:45 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/19 08:51:17 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/22 21:05:30 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int	get_table(int argc, char *argv[], t_table *table)
 		return (EINVARG);
 	if (!validate_int_params(argc - 1, argv))
 		return (EINVARG);
-	if (!table)
-		return (ERRSYS);
 	table->n = ft_atoi(argv[1]);
 	table->t_die = ft_atoi(argv[2]);
 	table->t_eat = ft_atoi(argv[3]);
 	table->t_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		table->meals = ft_atoi(argv[5]);
+    else
+        table->meals = 0;
     table->start_time = timestamp();
 	return (0);
 }

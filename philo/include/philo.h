@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/19 23:21:49 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/22 22:10:50 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ struct s_seat;
 
 typedef struct	s_table
 {
-	unsigned int	n;
+	int	n;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	display;
     pthread_mutex_t death_mutex;
+    pthread_mutex_t monitor_mutex;
 	int	t_die;
 	int	t_eat;
 	int	t_sleep;
@@ -52,7 +53,7 @@ typedef struct	s_table
 
 typedef struct s_seat
 {
-	unsigned int	i;
+	int	i;
 	pthread_t		phil;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
@@ -63,17 +64,13 @@ typedef struct s_seat
 	unsigned long	limit;
 	int				meals;
 	t_table         *table;
-	void			*(*routine)(void *);
 }	t_seat;
-
-
 
 unsigned long	timestamp(void);
 void		display(const char *str, t_seat *seat);
 void		*philosopher(void *arg);
-void		*death_monitor(void *arg);
-void		*meal_monitor(void *arg);
-int         init(t_table *table, t_seat seats[]);
+void		*monitor(void *arg);
+int         init(t_table *table);
 int			ft_atoi(const char *str);
 int			get_table(int argc, char *argv[], t_table *params);
 int			iterate(int (*func)(t_seat *), t_seat *arr, unsigned int n);
