@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 22:46:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/24 00:01:37 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/24 00:46:46 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	meal_counter(t_table *table)
 {
 	pthread_t		meal_counter;
 
-	pthread_create(&meal_counter, NULL, &meal_over, &table);
+	pthread_create(&meal_counter, NULL, &meal_over, table);
 	pthread_detach(meal_counter);
 	return (0);
 }

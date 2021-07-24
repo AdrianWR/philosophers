@@ -6,7 +6,7 @@
 #    By: aroque <aroque@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/23 18:35:11 by aroque            #+#    #+#              #
-#    Updated: 2021/07/23 23:59:39 by aroque           ###   ########.fr        #
+#    Updated: 2021/07/24 00:41:16 by aroque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ RM			= rm -f
 
 CC			= clang
 CPPFLAGS	=
-CFLAGS		= -g -O0 -fsanitize=address
-LDFLAGS		= -fsanitize=address
+CFLAGS		= -g
+LDFLAGS		= 
 LDLIBS		=
 
 INCLUDE_DIR	= include
