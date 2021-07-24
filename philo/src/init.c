@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 15:20:09 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/23 22:22:43 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/24 12:12:13 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	initialize_seats(t_seat seats[], t_table *table, int i)
 
 int	init(t_table *table)
 {
-	table->someone_died = false;
 	pthread_mutex_init(&table->display, NULL);
 	pthread_mutex_init(&table->death_mutex, NULL);
 	pthread_mutex_init(&table->monitor_mutex, NULL);

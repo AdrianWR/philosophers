@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 18:56:49 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/24 00:11:42 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/24 12:12:02 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_table
 	pthread_mutex_t	death_mutex;
 	pthread_mutex_t	monitor_mutex;
 	unsigned long	start_time;
-	bool			someone_died;
 	struct s_seat	*seats;
 }	t_table;
 
