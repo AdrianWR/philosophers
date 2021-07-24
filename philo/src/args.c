@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 22:40:45 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/24 00:47:01 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/24 11:46:26 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ bool	validate_int_params(int argc, char **argv)
 int	get_params(int argc, char *argv[], t_table *table)
 {
 	table->n = ft_atoi(argv[1]);
-	if (table->n <= 1)
-		return (1);
 	table->t_die = ft_atoi(argv[2]);
 	table->t_eat = ft_atoi(argv[3]);
 	table->t_sleep = ft_atoi(argv[4]);
