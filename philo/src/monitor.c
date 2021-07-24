@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 23:29:44 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/24 12:29:53 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/24 14:57:43 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static bool	meal_monitor(void *arg)
 	if (seat->table->meals && !seat->meals)
 	{
 		seat->alive = false;
+		pthread_mutex_unlock(&seat->meal_mutex);
 		pthread_mutex_unlock(&seat->mutex);
-	    pthread_mutex_unlock(&seat->meal_mutex);
 		return (true);
 	}
 	return (false);

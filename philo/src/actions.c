@@ -6,7 +6,7 @@
 /*   By: aroque <aroque@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:21:25 by aroque            #+#    #+#             */
-/*   Updated: 2021/07/23 22:39:10 by aroque           ###   ########.fr       */
+/*   Updated: 2021/07/24 15:00:12 by aroque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	eat(t_seat *seat)
 
 void	_sleep(t_seat *seat)
 {
-	usleep(seat->table->t_sleep * 1000);
 	display(M_SLEEP, seat);
+	usleep(seat->table->t_sleep * 1000);
 }
 
 void	think(t_seat *seat)
