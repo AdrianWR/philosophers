@@ -2,11 +2,9 @@
 # Custom #
 ##########
 
-philo*
-!philo*/
+*/philo
 */compile_commands.json
 */.clangd
-
 **/.vscode/
 
 ################
